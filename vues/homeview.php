@@ -30,9 +30,9 @@
             <h2 class="post-title">
               <?php echo htmlspecialchars($donnees['title']); ?>
             </h2>
-            <h3 class="post-subtitle">
-              <?php echo htmlspecialchars($donnees['content']); ?> <em><a href="<?='index.php?page=article&id='.$donnees->getID() ?>">...[lire la suite]</a>
-            </h3>
+            <h5 class="post-subtitle">
+              <?php echo htmlspecialchars($donnees['content']); ?> <em><a href="google.fr">...[lire la suite]</a></em>
+            </h5>
           </a>
           <p class="post-meta">Posté par
             <a href="#">Jean Forteroche</a>
