@@ -10,7 +10,7 @@
   <title>Billet Simple pour l'Alaska - J. Forteroche</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="design/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/design/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
   <link href="/design/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

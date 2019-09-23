@@ -1,7 +1,7 @@
+<!-- Récupérer billets page accueil -->
 <?php
 require('modeles/homemodel.php');
 
-$req = getBillets();
+$posts = getPosts();
 
 require('vues/homeview.php');
-?>

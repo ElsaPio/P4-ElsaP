@@ -10,8 +10,8 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="/design/vendor/jquery/jquery.min.js"></script>
-  <script src="/design/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../design/vendor/jquery/jquery.min.js"></script>
+  <script src="../design/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="/design/js/clean-blog.min.js"></script>
+  <script src="../design/js/clean-blog.min.js"></script>
