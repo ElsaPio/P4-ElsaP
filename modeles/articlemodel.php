@@ -13,7 +13,7 @@ function getPost($postId)
     $db = dbConnect();
     $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(date, \'%d/%m/%Y\') AS date FROM article WHERE id = ?');
     $req->execute(array($postId));
-    $post = $posts->fetch();
+    $post = $req->fetch();
 
     return $post;
 }
@@ -41,10 +41,13 @@ $database = "id10910491_p4_blogphp";
     try
     {
         $db = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+        return $db;
     }
     catch(Exception $e)
     {
         die('Erreur : '.$e->getMessage());
     }
+
+
 
 }

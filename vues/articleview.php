@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <h3><?= htmlspecialchars($post['title']) ?></h3>
+                <h2><?= htmlspecialchars($post['title']) ?></h2>
                 <p>
                     <div id="testarticle">
                         <p><?= nl2br(htmlspecialchars($post['content'])) ?></p></div>
@@ -47,27 +47,29 @@
 <article>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="col-lg-8 col-md-10 mx-auto" id="onecomment">
                  <?php
                  while ($comment = $comments->fetch())
                  {
                  ?>
         
-                <h5><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date'] ?></h5>
+                <h5 id="titlecomment"><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date'] ?></h5>
 
-                <p>
-                    <?= nl2br(htmlspecialchars($comment['comment'])) ?>
+                <p class="commentsp">
+                    <?= nl2br(htmlspecialchars($comment['content'])) ?>
                     <br />
                 </p>
-
-                <div>
-                    <a href="ajouter php pour signaler"><img src="/img/signaler.png" class="signaler" alt="signaler"/>Signaler</a>
-                </div>
 
                 <?php
                 }
                 ?>
                 <br />
+            </div>
+
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div>
+                    <a href="ajouter php pour signaler"><img src="/img/signaler.png" class="signaler" alt="signaler"/>Signaler</a>
+                </div>
             </div>
         </div>
     </div>

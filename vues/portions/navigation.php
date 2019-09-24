@@ -15,7 +15,7 @@
             <a class="nav-link" href="/vues/biographie.php">Biographie</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/vues/articleview.php">Dernier Chapitre</a>
+            <a class="nav-link" href="/controleurs/articlecontroller.php">Dernier Chapitre</a>
           </li>
         </ul>
       </div>
