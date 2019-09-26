@@ -1,12 +1,6 @@
 <?php
 
-function getPosts()
-{
-    $db = dbConnect();
-    $req = $db->query('SELECT id, title, content, DATE_FORMAT(date, \'%d/%m/%Y\') AS date FROM article ORDER BY date DESC LIMIT 0, 5');
 
-    return $req;
-}
 
 function getPost($postId)
 {
@@ -27,7 +21,14 @@ function getComments($postId)
     return $comments;
 }
 
+function postComment($postId, $author, $comment)
+{
+    $db = dbConnect();
+    $comments = $db->prepare('INSERT INTO comments(post_id, author, content, comment_date) VALUES(?, ?, ?, NOW())');
+    $affectedLines = $comments->execute(array($postId, $author, $comment));
 
+    return $affectedLines;
+}
 
 // Connexion à la BDD
 function dbConnect()

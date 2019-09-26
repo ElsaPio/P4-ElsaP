@@ -31,14 +31,14 @@ require_once('portions/navigation.php');
          {
          ?>
        <div class="post-preview">
-          <a href="controleurs/articlecontroller.php?id=<?php echo $article['id']; ?>">
+          <a href="index.php?action=post&&id=<?php echo $article['id']; ?>">
             <h2 class="post-title">
               <?= htmlspecialchars($article['title']); ?>
            </h2>
          </a>
             <h5 class="post-subtitle">
               <?= htmlspecialchars($article['content']); ?> 
-              <em> <a href="controleurs/articlecontroller.php?id=<?php echo $article['id']; ?>" id="lirelasuite">...[lire la suite]</a></em>
+              <em> <a href="index.php?action=post&&id=<?php echo $article['id']; ?>" id="lirelasuite">...[lire la suite]</a></em>
             </h5>
           </a>
           <p class="post-meta">Posté par

@@ -1,7 +1,19 @@
-<!-- Récupérer billets page accueil -->
 <?php
-require('modeles/homemodel.php');
+require('./controleurs/controller.php');
 
-$posts = getPosts();
-
-require('vues/homeview.php');
+if (isset($_GET['action'])) {
+    if ($_GET['action'] == 'listPosts') {
+        listPosts();
+    }
+    elseif ($_GET['action'] == 'post') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            post();
+        }
+        else {
+            echo 'Erreur : aucun identifiant de billet envoyé';
+        }
+    }
+}
+else {
+    listPosts();
+}
