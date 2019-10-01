@@ -1,16 +1,4 @@
-<!-- 1_Récupérer billets page accueil -->
-<!-- 2_Recup article+commentaires par id -->
-
 <?php
-
-require('./modeles/homemodel.php');
-
-function listPosts()
-{
-    $posts = getPosts();
-
-    require('vues/homeview.php');
-}
 
 require('./modeles/articlemodel.php');
 
@@ -20,4 +8,25 @@ function post()
     $comments = getComments($_GET['id']);
     
     require('./vues/articleview.php');
+}
+
+function listPosts()
+{
+    $posts = getPosts();
+
+    require('vues/homeview.php');
+}
+
+function addComment($postId, $author, $comment)
+{
+    $affectedLines = postComment($postId, $author, $comment);
+
+    if ($affectedLines === false) {
+        // Erreur gérée. Elle sera remontée jusqu'au bloc try du routeur !
+        throw new Exception('Impossible d\'ajouter le commentaire !');
+    }    
+    else {
+        header('Location: /index.php?action=post&id=' . $postId);
+        exit;
+    }
 }

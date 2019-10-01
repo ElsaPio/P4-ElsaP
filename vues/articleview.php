@@ -24,11 +24,11 @@
                         <p><?= nl2br(htmlspecialchars($post['content'])) ?></p></div>
                     <br />
                     <h2>Commentaires</h2>
-                    <form action="XXX" method="post">
+                    <form action="index.php?action=addComment&id=<?= $post['id'] ?>" method="post">
                         <div>
-                            <label for="name">Auteur</label>
+                            <label for="author">Auteur</label>
                             <br />
-                            <input type="text" id="name" name="name" />
+                            <input type="text" id="author" name="author" />
                         </div>
                         <div>
                             <label for="content">Commentaire</label>
