@@ -21,6 +21,14 @@ function getComments($postId)
     return $comments;
 }
 
+function getAllComments()
+{
+    $db = dbConnect();
+    $allcomments = $db->query('SELECT id, FK_post, author, content, signalement, DATE_FORMAT(comment_date, \'%d/%m/%Y\') AS comment_date FROM comment ORDER BY signalement DESC');
+
+    return $allcomments;
+}
+
 function postComment($postId, $author, $comment)
 {
     $db = dbConnect();

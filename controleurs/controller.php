@@ -17,6 +17,16 @@ function listPosts()
     require('vues/homeview.php');
 }
 
+function listPostsAdmin()
+{
+    $posts = getPosts();
+    $allcomments = getAllComments();
+
+    require('vues/adminHome.php');
+}
+
+
+
 function addComment($postId, $author, $comment)
 {
     $affectedLines = postComment($postId, $author, $comment);

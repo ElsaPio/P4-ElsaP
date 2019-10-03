@@ -30,6 +30,10 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
+        elseif ($_GET['action'] == 'listPostsAdmin') {
+            listPostsAdmin();
+        }
+
     }
     else {
         listPosts();
