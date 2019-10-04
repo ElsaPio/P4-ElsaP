@@ -35,3 +35,12 @@ footer {
 	background-color: seashell;
 	margin-bottom: 15px;
 }
+
+h1 {
+    font-weight: 800 !important;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif !important;
+}
+
+.modal-backdrop {
+	z-index: 0 !important;
+}
