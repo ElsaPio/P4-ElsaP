@@ -65,8 +65,10 @@
             </th>
           </thead>
           <tbody>
-            <?phpwhile ($article = $posts->
-            fetch()){?>
+            <?php
+            while ($article = $posts->fetch())
+              {
+                ?>
             <tr>
               <td>
                 <?= htmlspecialchars($article['title']); ?>
@@ -88,8 +90,10 @@
                 </p>
               </td>
             </tr>
-            <?php}$posts->
-            closeCursor();?>
+            <?php
+          }
+          $posts->closeCursor()
+          ;?>
           </tbody>
         </table>
       </div>
@@ -123,8 +127,10 @@
           </th>
         </thead>
         <tbody>
-          <?phpwhile ($comment = $allcomments->
-          fetch()){?>
+          <?php
+          while ($comment = $allcomments->fetch())
+            {
+              ?>
           <tr>
             <td>
               <?= htmlspecialchars($comment['FK_post']); ?>
@@ -139,7 +145,7 @@
               <?php echo $comment['comment_date']; ?>
             </td>
             <td>
-              <?= htmlspecialchars($comment['signalement']); ?>
+              <?= htmlspecialchars($comment['signalement'] = $intVal ? 'Oui' : 'Non'); ?>
             </td>
             <td>
               <p data-placement="top" data-toggle="tooltip" title="Edit">
@@ -152,8 +158,10 @@
               </p>
             </td>
           </tr>
-          <?php}$allcomments->
-          closeCursor();?>
+        <?php
+        }
+        $allcomments->closeCursor()
+        ;?>
         </tbody>
       </table>
     </div>
