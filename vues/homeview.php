@@ -37,7 +37,18 @@ require_once('portions/navigation.php');
            </h2>
          </a>
             <h5 class="post-subtitle">
-              <?= htmlspecialchars($article['content']); ?> 
+
+              <?php
+            if (strlen(strip_tags($article['content'])) >= 350) {
+                //trouve dernier espace après dernier mot de l'extrait.
+                $space = strpos(strip_tags($article['content']), ' ', 350);               
+                echo substr(strip_tags($article['content']), 0, $space).'...';
+            }
+            else 
+                echo(strip_tags($article['content']));
+                
+        ?>
+              
               <em> <a href="index.php?action=post&id=<?php echo $article['id']; ?>" id="lirelasuite">...[lire la suite]</a></em>
             </h5>
           </a>

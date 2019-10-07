@@ -17,6 +17,9 @@
           <li class="nav-item">
             <a class="nav-link" href="../index.php">Dernier Chapitre</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?module=membres&amp;action=inscription">Inscription/Connexion</a>
+          </li>
         </ul>
       </div>
     </div>

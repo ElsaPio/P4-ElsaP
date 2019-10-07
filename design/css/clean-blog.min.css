@@ -44,3 +44,40 @@ h1 {
 .modal-backdrop {
 	z-index: 0 !important;
 }
+
+#formulaireinscription {
+	padding : 20px;
+	background-color: seashell;
+	text-align: center;
+	font-size: 15px;
+}
+
+#formulaireconnexion {
+	padding : 20px;
+	background-color: seashell;
+	text-align: center;
+	font-size: 15px;
+}
+
+#ici {
+	color : #0085a1;
+}
+
+#addarticle {
+	background-color: seashell; 
+	color: #0085A1;
+    font-weight: 800;
+    font-size: 14px;
+    padding: 10px;
+    margin-right: 12px;
+}
+
+#buttonnewarticle {
+	justify-content: flex-end;
+}
+
+#newarticle {
+    max-width: 65%;
+    margin: auto;
+    text-align: center;
+}
