@@ -145,7 +145,7 @@
               <?php echo $comment['comment_date']; ?>
             </td>
             <td>
-              <?= htmlspecialchars($comment['signalement'] = $intVal ? 'Oui' : 'Non'); ?>
+               <?= htmlspecialchars($comment['signalement'] ? 'Oui' : 'Non'); ?>
             </td>
             <td>
               <p data-placement="top" data-toggle="tooltip" title="Edit">
