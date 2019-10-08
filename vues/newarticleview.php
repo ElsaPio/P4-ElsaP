@@ -28,17 +28,19 @@
     <div class="col-md-12">
       <h3>Nouvel article :</h3>
       
-      <div class="form-group">
-        <input class="form-control" type="text" placeholder="Titre">
-      </div>
+      <form action="index.php?action=addArticle" method="post">
+        <div class="form-group">
+          <input class="form-control" type="text" name="title" placeholder="Titre">
+        </div>
       
-      <div class="form-group">
-        <textarea rows="2" class="form-control" id="tinyarea" placeholder="Contenu"></textarea>
-      </div>
+        <div class="form-group">
+          <textarea rows="2" class="form-control" name="content" id="tinyarea" placeholder="Contenu"></textarea>
+        </div>
 
-      <div class="modal-footer ">
-        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span>Enregistrer l'article</button>
-      </div>
+        <div class="modal-footer ">
+          <button type="submit" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span>Enregistrer l'article</button>
+        </div>
+      </form>
     </div>
   </div>
 

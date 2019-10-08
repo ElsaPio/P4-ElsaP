@@ -25,7 +25,7 @@
 <!-- Main Content -->
 <div class="container">
   <div class="row" id="buttonnewarticle"> 
-    <a href="vues/newarticleview.php"><button id="addarticle">AJOUTER UN ARTICLE</button></a>
+    <a href="index.php?action=newArticle"><button id="addarticle">AJOUTER UN ARTICLE</button></a>
   </div>
 
   <div class="row">

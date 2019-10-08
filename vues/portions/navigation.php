@@ -15,10 +15,13 @@
             <a class="nav-link" href="/vues/biographie.php">Biographie</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../index.php">Dernier Chapitre</a>
+            <a class="nav-link" href="../index.php">Chapitres</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php?module=membres&amp;action=inscription">Inscription/Connexion</a>
+            <a class="nav-link" href="/vues/inscriptionview.php">Inscription/Connexion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?action=listPostsAdmin">Admin</a>
           </li>
         </ul>
       </div>

@@ -30,6 +30,18 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
+        elseif ($_GET['action'] == 'newArticle') {
+            viewAddArticle();
+        }
+        elseif ($_GET['action'] == 'addArticle') {
+                if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                    addArticle($_POST['title'], $_POST['content']);
+                }
+                else {
+                    // Autre exception
+                    throw new Exception('Tous les champs ne sont pas remplis !');
+                }
+        }
         elseif ($_GET['action'] == 'listPostsAdmin') {
             listPostsAdmin();
         }

@@ -26,6 +26,8 @@ require_once('portions/navigation.php');
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
+        <h1>Les 5 derniers chapitres...</h1>
+      </br>
          <?php
          while ($article = $posts->fetch()) 
          {
@@ -65,7 +67,7 @@ require_once('portions/navigation.php');
          ?>
        <!-- Pager -->
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="#">Billets + anciens &rarr;</a>
+          <a class="btn btn-primary float-right" href="#">Voir tous les billets &rarr;</a>
         </div>
       </div>
     </div>

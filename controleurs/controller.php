@@ -52,3 +52,24 @@ function addComment($postId, $author, $comment)
         exit;
     }
 }
+
+function viewAddArticle()
+{
+    require('vues/newarticleview.php');
+}
+
+function addArticle($title, $content)
+{
+    $postManager = new PostManager();
+
+    $affectedLines = $postManager->postArticle($title, $content);
+
+    if ($affectedLines === false) {
+        // Erreur gérée. Elle sera remontée jusqu'au bloc try du routeur !
+        throw new Exception('Impossible d\'ajouter le billet !');
+    }    
+    else {
+        header('Location: /index.php?action=listPostsAdmin');
+        exit;
+    }
+}
