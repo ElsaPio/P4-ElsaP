@@ -4,7 +4,11 @@ class CommentManager
     public function getComments($postId)
 	{
     	$db = $this->dbConnect();
-    	$comments = $db->prepare('SELECT id, author, content, DATE_FORMAT(comment_date, \'%d/%m/%Y\') AS comment_date FROM comment WHERE FK_post = ? ORDER BY id DESC');
+    	$comments = $db->prepare('SELECT comment.id, user.username, comment.content, DATE_FORMAT(comment.comment_date, \'%d/%m/%Y\') AS comment_date  FROM comment 
+
+        INNER JOIN user ON comment.author = user.id
+        INNER JOIN article ON comment.FK_post = article.id 
+        WHERE FK_POST = ? ORDER BY comment.id DESC');
     	$comments->execute(array($postId));
 
     	return $comments;
@@ -13,7 +17,11 @@ class CommentManager
     public function getAllComments()
 	{
     	$db = $this->dbConnect();
-    	$allcomments = $db->query('SELECT id, FK_post, author, content, signalement, DATE_FORMAT(comment_date, \'%d/%m/%Y\') AS comment_date FROM comment ORDER BY signalement DESC');
+    	$allcomments = $db->query('SELECT comment.id, article.title, user.username, comment.content, comment.signalement, DATE_FORMAT(comment.comment_date, \'%d/%m/%Y\') AS comment_date  FROM comment 
+
+        INNER JOIN user ON comment.author = user.id
+        INNER JOIN article ON comment.FK_post = article.id ORDER BY comment.signalement DESC');
+
 
     	return $allcomments;
 	}

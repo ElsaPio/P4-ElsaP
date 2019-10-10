@@ -34,7 +34,7 @@
       <div class="table-responsive">
         <table id="mytable" class="table table-bordred table-striped">
           <thead>
-            <th>
+            <th id="tab_titre">
               Titre
             </th>
             <th>
@@ -43,11 +43,11 @@
             <th>
               Date
             </th>
-            <th>
-              Modifier
+            <th id="tab_modif">
+              Modif
             </th>
-            <th>
-              Supprimer
+            <th id="tab_supp">
+              Suppr
             </th>
           </thead>
           <tbody>
@@ -60,7 +60,16 @@
                 <a href="index.php?action=post&id=<?php echo $article['id']; ?>" id="lirelasuite"><?= htmlspecialchars($article['title']); ?></a>
               </td>
               <td>
-                <?= htmlspecialchars($article['content']); ?>
+                <?php
+            if (strlen(strip_tags($article['content'])) >= 350) {
+                //trouve dernier espace après dernier mot de l'extrait.
+                $space = strpos(strip_tags($article['content']), ' ', 350);               
+                echo substr(strip_tags($article['content']), 0, $space).'...';
+            }
+            else 
+                echo(strip_tags($article['content']));
+                
+        ?>
               </td>
               <td>
                 <?php echo $article['date']; ?>
@@ -119,10 +128,10 @@
               ?>
           <tr>
             <td>
-              <?= htmlspecialchars($comment['FK_post']); ?>
+              <?= htmlspecialchars($comment['title']); ?>
             </td>
             <td>
-              <?= htmlspecialchars($comment['author']); ?>
+              <?= htmlspecialchars($comment['username']); ?>
             </td>
             <td>
               <?= htmlspecialchars($comment['content']); ?>

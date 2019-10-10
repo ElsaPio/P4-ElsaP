@@ -22,7 +22,7 @@ class PostManager
     public function postArticle($title, $content)
     {
         $db = $this->dbConnect();
-        $posts = $db->prepare('INSERT INTO article(title, content, date) VALUES(?, ?, NOW()');
+        $posts = $db->prepare('INSERT INTO article(title, content, date) VALUES(?, ?, NOW())');
         $affectedLines = $posts->execute(array($title, $content));
 
         return $affectedLines;

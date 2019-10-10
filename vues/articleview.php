@@ -21,7 +21,7 @@
                 <h2><?= htmlspecialchars($post['title']) ?></h2>
                 <p>
                     <div id="testarticle">
-                        <p><?= nl2br(htmlspecialchars($post['content'])) ?></p></div>
+                        <p><?= nl2br($post['content']) ?></p></div>
                     <br />
                     <h2>Commentaires</h2>
                     <form action="index.php?action=addComment&id=<?= $post['id'] ?>" method="post">
@@ -53,7 +53,7 @@
                  {
                  ?>
         
-                <h5 id="titlecomment"><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date'] ?></h5>
+                <h5 id="titlecomment"><?= htmlspecialchars($comment['username']) ?></strong> le <?= $comment['comment_date'] ?></h5>
 
                 <p class="commentsp">
                     <?= nl2br(htmlspecialchars($comment['content'])) ?>
