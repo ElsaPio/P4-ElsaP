@@ -20,14 +20,14 @@
     <div class="row">
        <div class="col-lg-8 col-md-10 mx-auto" id="formulaireinscription">
                 <h2>S'inscrire !</h2>
-                <span><em>Si vous avez déjà un compte, cliquez <a href="connexionview.php" id="ici">ICI</a> afin d'accéder à la page de connexion</em></span>
+                <span><em>Si vous avez déjà un compte, cliquez <a href="index.php?action=connexion" id="ici">ICI</a> afin d'accéder à la page de connexion</em></span>
 
-                <form action="index.php?action= ?>" method="post">
+                <form action="index.php?action=addUser" method="post">
                 </br>
                         <div>
-                            <label for="author">Pseudo</label>
+                            <label for="username">Pseudo</label>
                             <br />
-                            <input type="text" id="author" name="author" />
+                            <input type="text" id="username" name="username" />
                         </div>
                         <br/>
                         <div>
@@ -40,12 +40,6 @@
                             <label for="checkpassword">Confirmation du mot de passe</label>
                             <br />
                             <input type="password" id="checkpassword" name="checkpassword" />
-                        </div>
-                        <br/>
-                        <div>
-                            <label for="email">Adresse email</label>
-                            <br />
-                            <input type="text" id="email" name="email" />
                         </div>
                         <br/>
                         <div>

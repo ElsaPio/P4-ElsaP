@@ -42,6 +42,21 @@ try { // On essaie de faire des choses
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
         }
+        elseif ($_GET['action'] == 'newUser') {
+            viewAddUser();
+        }
+        elseif ($_GET['action'] == 'addUser') {
+                if (!empty($_POST['username']) && !empty($_POST['password'])) {
+                    addUser($_POST['username'], $_POST['password']);
+                }
+                else {
+                    // Autre exception
+                    throw new Exception('Tous les champs ne sont pas remplis !');
+                }
+        }
+        elseif ($_GET['action'] == 'connexion') {
+            viewConnexion();
+        }
         elseif ($_GET['action'] == 'listPostsAdmin') {
             listPostsAdmin();
         }

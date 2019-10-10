@@ -18,7 +18,7 @@
             <a class="nav-link" href="../index.php">Chapitres</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/vues/inscriptionview.php">Inscription/Connexion</a>
+            <a class="nav-link" href="index.php?action=newUser">Inscription/Connexion</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php?action=listPostsAdmin">Admin</a>

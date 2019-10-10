@@ -20,7 +20,7 @@
     <div class="row">
        <div class="col-lg-8 col-md-10 mx-auto" id="formulaireconnexion">
                 <h2>Se connecter !</h2>
-                <span><em>Si vous n'avez pas de compte, cliquez <a href="inscriptionview.php" id="ici">ICI</a> afin d'accéder au formulaire d'inscirption</em></span>
+                <span><em>Si vous n'avez pas de compte, cliquez <a href="index.php?action=newUser" id="ici">ICI</a> afin d'accéder au formulaire d'inscirption</em></span>
 
                 <form action="index.php?action= ?>" method="post">
                 </br>

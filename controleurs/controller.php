@@ -2,6 +2,7 @@
 
 require_once('./modeles/PostManager.php');
 require_once('./modeles/CommentManager.php');
+require_once('./modeles/LoginManager.php');
 
 
 function listPosts()
@@ -72,4 +73,32 @@ function addArticle($title, $content)
         header('Location: /index.php?action=listPostsAdmin');
         exit;
     }
+}
+
+function viewAddUser()
+{
+    require('vues/inscriptionview.php');
+}
+
+function addUser($username, $password)
+{
+    $loginManager = new LoginManager();
+
+    $affectedLines = $loginManager->registerUser($username, $password);
+
+    if ($affectedLines === false) {
+        // Erreur gérée. Elle sera remontée jusqu'au bloc try du routeur !
+        echo "<script>alert(\"Inscription impossible ! Le pseudo que vous tentez de prendre est peut-être déjà utilisé....\");
+        document.location.href = '/index.php?action=newUser'</script>";
+        
+    }    
+    else {
+        echo "<script>alert(\"Vous êtes maintenant inscrit ! Veuillez vous connecter.\");
+        document.location.href = '/index.php?action=connexion'</script>";
+    }
+}
+
+function viewConnexion()
+{
+    require('vues/connexionview.php');
 }
