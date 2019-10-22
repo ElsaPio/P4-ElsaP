@@ -22,12 +22,12 @@
                 <h2>Se connecter !</h2>
                 <span><em>Si vous n'avez pas de compte, cliquez <a href="index.php?action=newUser" id="ici">ICI</a> afin d'accéder au formulaire d'inscirption</em></span>
 
-                <form action="index.php?action= ?>" method="post">
+                <form action="index.php?action=checkconnexion" method="post">
                 </br>
                         <div>
-                            <label for="author">Pseudo</label>
+                            <label for="username">Pseudo</label>
                             <br />
-                            <input type="text" id="author" name="author" />
+                            <input type="text" id="username" name="username" />
                         </div>
                         <br/>
                         <div>

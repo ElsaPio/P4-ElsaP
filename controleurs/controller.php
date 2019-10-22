@@ -102,3 +102,45 @@ function viewConnexion()
 {
     require('vues/connexionview.php');
 }
+
+function connexion($username, $passwordform)
+{
+    $loginManager = new LoginManager();
+    $login = $loginManager->sessionUser($username);
+    $user = $login->fetch(PDO::FETCH_OBJ);
+
+    if (!$user) { //Si rien dans $user = infos non récupérées dans BDD donc user n'existe pas 
+        echo "<script>alert(\"Pseudo incorrect\");
+        document.location.href = '/index.php?action=connexion'</script>";
+    }
+    else { //Si infos dans $login = user existe -> vérifier mot de passe 
+        $mdp = $user->password;
+        $validPassword = password_verify($passwordform, $mdp);
+
+        
+        if($validPassword) { //Si $validPassword est TRUE, la connexion est réussie
+
+         // commencer session
+        $_SESSION['Auth'] = array(
+            'username' => $username,
+            'password' => $passwordform
+        );
+        print_r($_SESSION);
+        }
+
+        else { //Si $validPassword est FALSE, le password_verify a échoué
+
+            echo "<script>alert(\"Mot de passe incorrect\");
+            document.location.href = '/index.php?action=connexion'</script>";
+        }
+    }
+    
+}
+
+function deconnexion()
+{
+    $_SESSION = array();
+    session_destroy();
+    header('Location: /index.php?action=connexion');
+    exit;
+}

@@ -1,5 +1,7 @@
 <?php
-class PostManager
+require_once("modeles/Manager.php");
+
+class PostManager extends Manager
 {
     public function getPosts()
     {
@@ -26,18 +28,6 @@ class PostManager
         $affectedLines = $posts->execute(array($title, $content));
 
         return $affectedLines;
-    }
-
-    // Connexion à la BDD
-    private function dbConnect()
-    {
-        $servername = "localhost";
-        $username = "id10910491_elsa";
-        $password = "jforteroche";
-        $database = "id10910491_p4_blogphp";
-
-        $db = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
-        return $db;    
     }
 
 }

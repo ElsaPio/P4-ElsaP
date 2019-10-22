@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('./controleurs/controller.php');
 
 try { // On essaie de faire des choses
@@ -56,6 +57,18 @@ try { // On essaie de faire des choses
         }
         elseif ($_GET['action'] == 'connexion') {
             viewConnexion();
+        }
+        elseif ($_GET['action'] == 'checkconnexion') {
+            if(!empty($_POST['username']) && !empty($_POST['password'])) {
+                connexion($_POST['username'], $_POST['password']);
+            }   
+            else {
+                //erreur
+                throw new Exception('Pseudo ou mot de passe non entré !');
+            } 
+        }
+        elseif ($_GET['action'] == 'deconnexion') {
+            deconnexion();
         }
         elseif ($_GET['action'] == 'listPostsAdmin') {
             listPostsAdmin();

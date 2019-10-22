@@ -1,24 +1,24 @@
 <?php
-class LoginManager
+require_once("modeles/Manager.php");
+
+class LoginManager extends Manager
 {
     public function registerUser($username, $password)
 	{
+        $pass_hache = password_hash($password, PASSWORD_DEFAULT);
     	$db = $this->dbConnect();
         $login = $db->prepare('INSERT INTO user(username, password, FKtype_user) VALUES(?, ?, 2)');
-        $affectedLines = $login->execute(array($username, $password));
+        $affectedLines = $login->execute(array($username, $pass_hache));
 
         return $affectedLines;
 	}
 
-    // Connexion à la BDD
-    private function dbConnect()
+    public function sessionUser($username)
     {
-        $servername = "localhost";
-        $username = "id10910491_elsa";
-        $password = "jforteroche";
-        $database = "id10910491_p4_blogphp";
+        $db = $this->dbConnect();
+        $login = $db->prepare('SELECT id, password FROM user WHERE username= ?');
+        $login->execute(array($username));
 
-        $db = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
-        return $db;    
+        return $login;  
     }
 }
