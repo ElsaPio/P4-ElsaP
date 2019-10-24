@@ -78,6 +78,7 @@ function addArticle($title, $content)
 function viewAddUser()
 {
     require('vues/inscriptionview.php');
+    var_dump($_SESSION);
 }
 
 function addUser($username, $password)
@@ -121,11 +122,12 @@ function connexion($username, $passwordform)
         if($validPassword) { //Si $validPassword est TRUE, la connexion est réussie
 
          // commencer session
-        $_SESSION['Auth'] = array(
-            'username' => $username,
-            'password' => $passwordform
-        );
-        print_r($_SESSION);
+        $_SESSION['username'] = $username;
+        $_SESSION['iduser'] = $user->id;
+        $_SESSION['typeuser'] = $user->FKtype_user;
+
+        echo "<script>alert(\"Vous êtes connecté !\");
+           document.location.href = '/index.php'</script>";
         }
 
         else { //Si $validPassword est FALSE, le password_verify a échoué

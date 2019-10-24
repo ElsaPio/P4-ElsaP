@@ -18,8 +18,8 @@ try { // On essaie de faire des choses
         }
         elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                if (!empty($_POST['author']) && !empty($_POST['content'])) {
-                    addComment($_GET['id'], $_POST['author'], $_POST['content']);
+                if (!empty($_SESSION['iduser']) && !empty($_POST['content'])) {
+                    addComment($_GET['id'], $_SESSION['iduser'], $_POST['content']);
                 }
                 else {
                     // Autre exception

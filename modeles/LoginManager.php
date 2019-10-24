@@ -16,7 +16,7 @@ class LoginManager extends Manager
     public function sessionUser($username)
     {
         $db = $this->dbConnect();
-        $login = $db->prepare('SELECT id, password FROM user WHERE username= ?');
+        $login = $db->prepare('SELECT id, password, FKtype_user FROM user WHERE username= ?');
         $login->execute(array($username));
 
         return $login;  

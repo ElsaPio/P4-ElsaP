@@ -8,6 +8,7 @@
 
   <?php require_once('portions/navigation.php'); ?>
 
+  <?php if ($_SESSION['typeuser'] == '2'): ?>    
   <header class="masthead" style="background-image: url('/img/post-bg.jpg')">
     <div class="overlay"></div>
     <div class="container">
@@ -46,4 +47,21 @@
 
 
 <hr>
+
+<?php else: ?>
+  <header class="masthead" style="background-image: url('/img/post-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>OOPS ! Accès refusé</h1>
+            <span class="meta">Il faut être administrateur pour accéder à cette page</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<?php endif;?>
 <?php  require_once('portions/footer.php');  ?>

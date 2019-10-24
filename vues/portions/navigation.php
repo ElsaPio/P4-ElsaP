@@ -20,9 +20,12 @@
           <li class="nav-item">
             <a class="nav-link" href="index.php?action=newUser">Inscription/Connexion</a>
           </li>
+          <?php if ($_SESSION['typeuser'] == '2'): ?>  
           <li class="nav-item">
             <a class="nav-link" href="index.php?action=listPostsAdmin">Admin</a>
           </li>
+          <?php else: ?>
+          <?php endif;?>
         </ul>
       </div>
     </div>

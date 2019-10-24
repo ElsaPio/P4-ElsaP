@@ -24,12 +24,9 @@
                         <p><?= nl2br($post['content']) ?></p></div>
                     <br />
                     <h2>Commentaires</h2>
-                    <form action="index.php?action=addComment&id=<?= $post['id'] ?>" method="post">
-                        <div>
-                            <label for="author">Auteur</label>
-                            <br />
-                            <input type="text" id="author" name="author" />
-                        </div>
+
+                    <?php if (!empty($_SESSION['username'])): ?>
+                        <form action="index.php?action=addComment&id=<?= $post['id'] ?>" method="post">
                         <div>
                             <label for="content">Commentaire</label>
                             <br />
@@ -38,7 +35,12 @@
                         <div>
                             <input type="submit" />
                         </div>
-                    </form>
+                        </form>
+                    
+
+                    <?php else: ?>
+                        <p>Veuillez vous connecter pour publier un commentaire</p>
+                    <?php endif;?>
                 </p>
             </div>
         </div>
