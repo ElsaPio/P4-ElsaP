@@ -17,14 +17,20 @@
           <li class="nav-item">
             <a class="nav-link" href="../index.php">Chapitres</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php?action=newUser">Inscription/Connexion</a>
-          </li>
-          <?php if ($_SESSION['typeuser'] == '2'): ?>  
+          <?php if (!empty($_SESSION['typeuser']) &&($_SESSION['typeuser'] == '2')): ?>  
           <li class="nav-item">
             <a class="nav-link" href="index.php?action=listPostsAdmin">Admin</a>
           </li>
+          
+          <?php endif;?>
+          <?php if (!empty($_SESSION['username'])): ?>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?action=deconnexion">Deconnexion</a>
+          </li>
           <?php else: ?>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?action=newUser">Inscription/Connexion</a>
+          </li>
           <?php endif;?>
         </ul>
       </div>
