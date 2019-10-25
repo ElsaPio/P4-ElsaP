@@ -11,6 +11,14 @@ class PostManager extends Manager
         return $posts;
     }
 
+    public function getAllPosts()
+    {
+        $db = $this->dbConnect();
+        $allposts = $db->query('SELECT id, title, content, DATE_FORMAT(date, \'%d/%m/%Y\') AS date FROM article ORDER BY id DESC');
+
+        return $allposts;
+    }
+
     public function getPost($postId)
     {
         $db = $this->dbConnect();
@@ -28,6 +36,14 @@ class PostManager extends Manager
         $affectedLines = $posts->execute(array($title, $content));
 
         return $affectedLines;
+    }
+
+    public function deleteArticle($id)
+    {
+        $db = $this->dbConnect();
+        $delete = $db->prepare("DELETE FROM article WHERE id = :id");
+        $delete->execute( array( ':id' => $id ) );
+        return $delete;
     }
 
 }

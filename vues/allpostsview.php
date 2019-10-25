@@ -26,10 +26,10 @@ require_once('portions/navigation.php');
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <h1>Les 5 derniers chapitres...</h1>
+        <h1>Tous les chapitres</h1>
       </br>
          <?php
-         while ($article = $posts->fetch()) 
+         while ($article = $allposts->fetch()) 
          {
          ?>
        <div class="post-preview">
@@ -63,12 +63,8 @@ require_once('portions/navigation.php');
         <hr>
          <?php
          }
-         $posts->closeCursor();
+         $allposts->closeCursor();
          ?>
-       <!-- Pager -->
-        <div class="clearfix">
-          <a class="btn btn-primary float-right" href="index.php?action=listAllPosts">Voir tous les billets &rarr;</a>
-        </div>
       </div>
     </div>
   </div>

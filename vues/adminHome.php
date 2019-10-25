@@ -53,7 +53,7 @@
           </thead>
           <tbody>
             <?php
-            while ($article = $posts->fetch())
+            while ($article = $allposts->fetch())
               {
                 ?>
             <tr>
@@ -82,13 +82,13 @@
               </td>
               <td>
                 <p data-placement="top" data-toggle="tooltip" title="Supprimer">
-                  <button class="btn btn-danger btn-xs" data-title="Supprimer" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button>
+                  <a href="index.php?action=suppArticle&id=<?php echo $article['id']; ?>"><button class="btn btn-danger btn-xs" data-title="Supprimer" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></a>
                 </p>
               </td>
             </tr>
             <?php
           }
-          $posts->closeCursor()
+          $allposts->closeCursor()
           ;?>
           </tbody>
         </table>
@@ -100,29 +100,29 @@
     <div class="table-responsive">
       <table id="mytablecomm" class="table table-bordred table-striped">
         <thead>
-          <th>
+          <th class="iconcenter">
             Billet associé
           </th>
-          <th>
+          <th class="iconcenter">
             Auteur
           </th>
-          <th>
+          <th class="iconcenter">
             Commentaire
           </th>
-          <th>
+          <th class="iconcenter">
             Date
           </th>
-          <th>
+          <th class="iconcenter">
             Signalement
           </th>
-          <th>
+          <th class="iconcenter">
             Modifier
           </th>
-          <th>
+          <th class="iconcenter">
             Supprimer
           </th>
         </thead>
-        <tbody>
+        <tbody class="iconcenter">
           <?php
           while ($comment = $allcomments->fetch())
             {
@@ -144,13 +144,13 @@
                <?= htmlspecialchars($comment['signalement'] ? 'Oui' : 'Non'); ?>
             </td>
             <td>
-              <p data-placement="top" data-toggle="tooltip" title="Edit">
+              <p data-placement="top" data-toggle="tooltip" title="Modifier">
                 <button class="btn btn-primary btn-xs" data-title="Modifier" data-toggle="modal" data-target="#editcomm" ><span class="glyphicon glyphicon-pencil"></span></button>
               </p>
             </td>
             <td>
-              <p data-placement="top" data-toggle="tooltip" title="Delete">
-                <button class="btn btn-danger btn-xs" data-title="Supprimer" data-toggle="modal" data-target="#deletecomm" ><span class="glyphicon glyphicon-trash"></span></button>
+              <p data-placement="top" data-toggle="tooltip" title="Supprimer">
+                <a href="index.php?action=suppComment&id=<?php echo $comment['id']; ?>"><button class="btn btn-danger btn-xs" data-title="Supprimer" data-toggle="modal" data-target="#deletecomm" ><span class="glyphicon glyphicon-trash"></span></button></a>
               </p>
             </td>
           </tr>
@@ -186,6 +186,7 @@
 </div>
 <!-- /.modal-dialog -->
 </div>
+<!--
 <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true"><div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
@@ -202,10 +203,9 @@
       <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Non</button>
     </div>
   </div>
-  <!-- /.modal-content -->
 </div>
-<!-- /.modal-dialog -->
 </div>
+-->
 <div class="modal fade" id="editcomm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true"><div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
@@ -225,6 +225,7 @@
 </div>
 <!-- /.modal-dialog -->
 </div>
+<!--
 <div class="modal fade" id="deletecomm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true"><div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
@@ -241,10 +242,9 @@
       <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Non</button>
     </div>
   </div>
-  <!-- /.modal-content -->
 </div>
-<!-- /.modal-dialog -->
 </div>
+-->
 <hr>
 
 <?php else: ?>

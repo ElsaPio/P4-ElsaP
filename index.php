@@ -7,6 +7,9 @@ try { // On essaie de faire des choses
         if ($_GET['action'] == 'listPosts') {
             listPosts();
         }
+        else if ($_GET['action'] == 'listAllPosts') {
+            listAllPosts();
+        }
         elseif ($_GET['action'] == 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 post();
@@ -31,6 +34,28 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
+        elseif ($_GET['action'] == 'suppComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $id = (!empty($_GET['id']))? intval($_GET['id']) : 0;
+                suppComment($id);    
+            }
+            else {
+                // Autre exception
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+            }   
+        }
+        elseif ($_GET['action'] == 'signalComment') {
+            if (isset($_SESSION['username']) && !empty($_SESSION['username']) && isset($_GET['id']) && $_GET['id'] > 0) {
+                    $id = (!empty($_GET['id']))? intval($_GET['id']) : 0;
+                    signalementComment($id);
+            }
+            else {
+                //echo "<script>alert(\"Vous devez être connecté(e) pour signaler un commentaire\");";
+                throw new Exception('Vous devez être connecté(e) pour signaler un commentaire');
+                    
+            }
+
+        }
         elseif ($_GET['action'] == 'newArticle') {
             viewAddArticle();
         }
@@ -42,6 +67,16 @@ try { // On essaie de faire des choses
                     // Autre exception
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
+        }
+        elseif ($_GET['action'] == 'suppArticle') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $id = (!empty($_GET['id']))? intval($_GET['id']) : 0;
+                suppArticle($id);    
+            }
+            else {
+                // Autre exception
+                throw new Exception('Aucun identifiant d\'article envoyé');
+            }   
         }
         elseif ($_GET['action'] == 'newUser') {
             viewAddUser();

@@ -6,7 +6,7 @@ class CommentManager extends Manager
     public function getComments($postId)
 	{
     	$db = $this->dbConnect();
-    	$comments = $db->prepare('SELECT comment.id, user.username, comment.content, DATE_FORMAT(comment.comment_date, \'%d/%m/%Y\') AS comment_date  FROM comment 
+    	$comments = $db->prepare('SELECT comment.id, user.username, comment.content, comment.signalement, DATE_FORMAT(comment.comment_date, \'%d/%m/%Y\') AS comment_date  FROM comment 
 
         INNER JOIN user ON comment.author = user.id
         INNER JOIN article ON comment.FK_post = article.id 
@@ -36,6 +36,24 @@ class CommentManager extends Manager
 
 	    return $affectedLines;
 	}
+
+    public function deleteComment($id)
+    {
+        $db = $this->dbConnect();
+        $delete = $db->prepare('DELETE FROM comment WHERE id = :id');
+        $delete->execute( array( ':id' => $id ) );
+        return $delete;
+    }
+
+    public function signalComment($id)
+    {
+        $db = $this->dbConnect();
+        $signal = $db->prepare('UPDATE comment SET signalement = 1 WHERE id = :id');
+        $signal->execute(array( ':id' => $id ));
+        return $signal;
+    }
+
+    
 
 }
 

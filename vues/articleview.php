@@ -54,13 +54,19 @@
                  while ($comment = $comments->fetch())
                  {
                  ?>
-        
-                <h5 id="titlecomment"><?= htmlspecialchars($comment['username']) ?></strong> le <?= $comment['comment_date'] ?></h5>
+                 <?php if ($comment['signalement'] == 0): ?>
+                    <h5 id="titlecomment"><?= htmlspecialchars($comment['username']) ?></strong> le <?= $comment['comment_date'] ?> <a href="index.php?action=signalComment&id=<?= $comment['id'] ?>"><img src="/img/signaler.png" class="signaler" alt="signaler"/></a></h5>
+                    <p class="commentsp">
+                        <?= nl2br(htmlspecialchars($comment['content'])) ?>
+                        <br />
+                    </p>
 
-                <p class="commentsp">
-                    <?= nl2br(htmlspecialchars($comment['content'])) ?>
-                    <br />
-                </p>
+                <?php else: ?>
+                    <h5 id="titlecomment"><?= htmlspecialchars($comment['username']) ?></strong> le <?= $comment['comment_date'] ?><img src="/img/signalerrouge.png" class="signaler" alt="signaler"/></h5>
+                    <p class="commentsp">
+                        <em>Commentaire signalé</em>
+                    </p>
+                <?php endif;?>
 
                 <?php
                 }
@@ -68,11 +74,7 @@
                 <br />
             </div>
 
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <div>
-                    <a href="ajouter php pour signaler"><img src="/img/signaler.png" class="signaler" alt="signaler"/>Signaler</a>
-                </div>
-            </div>
+            
         </div>
     </div>
 </article>

@@ -15,7 +15,7 @@
             <a class="nav-link" href="/vues/biographie.php">Biographie</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../index.php">Chapitres</a>
+            <a class="nav-link" href="index.php?action=listAllPosts">Chapitres</a>
           </li>
           <?php if (!empty($_SESSION['typeuser']) &&($_SESSION['typeuser'] == '2')): ?>  
           <li class="nav-item">

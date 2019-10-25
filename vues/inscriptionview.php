@@ -23,7 +23,7 @@
                 <span><em>Si vous avez déjà un compte, cliquez <a href="index.php?action=connexion" id="ici">ICI</a> afin d'accéder à la page de connexion</em></span>
 
                 <form action="index.php?action=addUser" method="post">
-                </br>
+                <br/>
                         <div>
                             <label for="username">Pseudo</label>
                             <br />

@@ -7,7 +7,7 @@ class LoginManager extends Manager
 	{
         $pass_hache = password_hash($password, PASSWORD_DEFAULT);
     	$db = $this->dbConnect();
-        $login = $db->prepare('INSERT INTO user(username, password, FKtype_user) VALUES(?, ?, 2)');
+        $login = $db->prepare('INSERT INTO user(username, password, FKtype_user) VALUES(?, ?, 1)');
         $affectedLines = $login->execute(array($username, $pass_hache));
 
         return $affectedLines;

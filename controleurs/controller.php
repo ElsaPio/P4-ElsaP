@@ -13,6 +13,13 @@ function listPosts()
     require('vues/homeview.php');
 }
 
+function listAllPosts()
+{
+    $postManager = new PostManager(); //Création Objet
+    $allposts = $postManager->getAllPosts();
+
+    require('vues/allpostsview.php');
+}
 
 function post()
 {
@@ -31,7 +38,7 @@ function listPostsAdmin()
     $postManager = new PostManager();
     $commentManager = new CommentManager();
 
-    $posts = $postManager->getPosts();
+    $allposts = $postManager->getAllPosts();
     $allcomments = $commentManager->getAllComments();
 
     require('vues/adminHome.php');
@@ -54,6 +61,37 @@ function addComment($postId, $author, $comment)
     }
 }
 
+function suppComment($id)
+{
+    $commentManager = new CommentManager();
+
+    $delete = $commentManager->deleteComment($id);
+    echo "<script>alert(\"Commentaire effacé\");
+        document.location.href = '/index.php?action=listPostsAdmin'</script>";
+}
+
+function signalementComment($id)
+{
+    $commentManager = new CommentManager();
+
+    $affectedLines = $commentManager->signalComment($id);
+
+    if ($affectedLines === false) {
+        // Erreur gérée. Elle sera remontée jusqu'au bloc try du routeur !
+        throw new Exception('Impossible de signaler supprimer le commentaire !');
+    }    
+    else {
+     
+        //$recupPostId = $commentManager->getComments($postId);
+        //header('Location: /index.php?action=post&id=' . $postId);
+        //exit;
+        //header('Location: index.php?action=post&id='.$commentManager->getPost($_GET['id']));
+
+        echo "<script>alert(\"Commentaire signalé ! On va lire un autre article ?\");
+        document.location.href = '/index.php'</script>";
+    }
+}
+
 function viewAddArticle()
 {
     require('vues/newarticleview.php');
@@ -73,6 +111,15 @@ function addArticle($title, $content)
         header('Location: /index.php?action=listPostsAdmin');
         exit;
     }
+}
+
+function suppArticle($id)
+{
+    $postManager = new PostManager();
+
+    $delete = $postManager->deleteArticle($id);
+    echo "<script>alert(\"Article effacé\");
+        document.location.href = '/index.php?action=listPostsAdmin'</script>";
 }
 
 function viewAddUser()
