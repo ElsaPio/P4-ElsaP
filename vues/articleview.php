@@ -55,7 +55,7 @@
                  {
                  ?>
                  <?php if ($comment['signalement'] == 0): ?>
-                    <h5 id="titlecomment"><?= htmlspecialchars($comment['username']) ?></strong> le <?= $comment['comment_date'] ?> <a href="index.php?action=signalComment&id=<?= $comment['id'] ?>"><img src="/img/signaler.png" class="signaler" alt="signaler"/></a></h5>
+                    <h5 id="titlecomment"><?= htmlspecialchars($comment['username']) ?></strong> le <?= $comment['comment_date'] ?> <a href="index.php?action=signalComment&id=<?= $comment['id'] ?>&postid=<?= $post['id'] ?>"><img src="/img/signaler.png" class="signaler" alt="signaler"/></a></h5>
                     <p class="commentsp">
                         <?= nl2br(htmlspecialchars($comment['content'])) ?>
                         <br />

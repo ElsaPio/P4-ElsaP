@@ -53,6 +53,14 @@ class CommentManager extends Manager
         return $signal;
     }
 
+    public function unsignalComment($id)
+    {
+        $db = $this->dbConnect();
+        $unsignal = $db->prepare('UPDATE comment SET signalement = 0 WHERE id = :id');
+        $unsignal->execute(array( ':id' => $id ));
+        return $unsignal;
+    }
+
     
 
 }

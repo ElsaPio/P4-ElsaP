@@ -38,11 +38,20 @@ class PostManager extends Manager
         return $affectedLines;
     }
 
+    public function editArticle($title, $content, $id)
+    {
+        $db = $this->dbConnect();
+        $edit = $db->prepare('UPDATE article SET title =?, content =? WHERE id =?');
+        $edit->execute(array($title, $content, $id ));
+
+        return $edit;
+    }
+
     public function deleteArticle($id)
     {
         $db = $this->dbConnect();
         $delete = $db->prepare("DELETE FROM article WHERE id = :id");
-        $delete->execute( array( ':id' => $id ) );
+        $delete->execute( array( ':id' => $id ));
         return $delete;
     }
 

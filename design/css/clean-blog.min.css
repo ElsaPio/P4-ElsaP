@@ -34,6 +34,7 @@ footer {
 #onecomment {
 	background-color: seashell;
 	margin-bottom: 15px;
+	padding-top: 15px;
 }
 
 h1 {
@@ -88,6 +89,18 @@ h1 {
 
 #tab_titre {
 	width: 170px;
+}
+
+/*Boutons panneau admin*/
+.iconcenter {
+	text-align: center;
+}
+
+/*Signaler comm*/
+.signaler {
+	width : 16px;
+	margin-top: -3px;
+	margin-left: 2px;
 }
 
 @media only screen and (min-width: 992px) {

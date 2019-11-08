@@ -68,6 +68,25 @@ try { // On essaie de faire des choses
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
         }
+        elseif ($_GET['action'] == 'editArticleView') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                viewEditArticle($_GET['id']);
+            }
+            else {
+                throw new Exception('Aucun identifiant de billet envoyé');
+            }
+            
+        }
+        elseif ($_GET['action'] == 'editArticle') {
+                if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                    $id = (!empty($_GET['id']))? intval($_GET['id']) : 0;
+                    editArticle($_POST['title'], $_POST['content'], $id);
+                }
+                else {
+                    // Autre exception
+                    throw new Exception('Tous les champs ne sont pas remplis !');
+                }
+        }
         elseif ($_GET['action'] == 'suppArticle') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $id = (!empty($_GET['id']))? intval($_GET['id']) : 0;

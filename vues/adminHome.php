@@ -77,7 +77,7 @@
               </td>
               <td>
                 <p data-placement="top" data-toggle="tooltip" title="Modifier">
-                  <button class="btn btn-primary btn-xs" data-title="Modifier" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button>
+                  <a href="index.php?action=editArticleView&id=<?php echo $article['id']; ?>"><button class="btn btn-primary btn-xs" data-title="Modifier" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></a>
                 </p>
               </td>
               <td>
@@ -164,8 +164,7 @@
   </div>
 </div>
 </div>
-<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true"><div class="modal-dialog">
-  <div class="modal-content">
+<!-- <div class="modal-content">
     <div class="modal-header">
       <h4 class="modal-title custom_align" id="Heading">Modifier l'article</h4>
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
@@ -181,7 +180,7 @@
     <div class="modal-footer ">
       <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span>Mettre à jour</button>
     </div>
-  </div>
+  </div> -->
   <!-- /.modal-content -->
 </div>
 <!-- /.modal-dialog -->

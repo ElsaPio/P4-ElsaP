@@ -72,6 +72,10 @@ function suppComment($id)
 
 function signalementComment($id)
 {
+    $postManager = new PostManager();
+
+    $post = $postManager->getPost($_GET['postid']);
+
     $commentManager = new CommentManager();
 
     $affectedLines = $commentManager->signalComment($id);
@@ -81,14 +85,9 @@ function signalementComment($id)
         throw new Exception('Impossible de signaler supprimer le commentaire !');
     }    
     else {
-     
-        //$recupPostId = $commentManager->getComments($postId);
-        //header('Location: /index.php?action=post&id=' . $postId);
-        //exit;
-        //header('Location: index.php?action=post&id='.$commentManager->getPost($_GET['id']));
-
-        echo "<script>alert(\"Commentaire signalé ! On va lire un autre article ?\");
-        document.location.href = '/index.php'</script>";
+        // Redirection vers l'article 
+        header('Location: /index.php?action=post&id=' . $post['id']);
+        exit;
     }
 }
 
@@ -106,6 +105,31 @@ function addArticle($title, $content)
     if ($affectedLines === false) {
         // Erreur gérée. Elle sera remontée jusqu'au bloc try du routeur !
         throw new Exception('Impossible d\'ajouter le billet !');
+    }    
+    else {
+        header('Location: /index.php?action=listPostsAdmin');
+        exit;
+    }
+}
+
+function viewEditArticle($id)
+{
+    $postManager = new PostManager();
+
+    $post = $postManager->getPost($_GET['id']);
+
+    require('vues/editarticleview.php');
+}
+
+function editArticle($title, $content, $id)
+{
+    $postManager = new PostManager();
+
+    $affectedLines = $postManager->editArticle($title, $content, $id);
+
+    if ($affectedLines === false) {
+        // Erreur gérée. Elle sera remontée jusqu'au bloc try du routeur !
+        throw new Exception('Impossible d\'éditer le billet !');
     }    
     else {
         header('Location: /index.php?action=listPostsAdmin');
