@@ -12,7 +12,7 @@
             <a class="nav-link" href="../index.php">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/vues/biographie.php">Biographie</a>
+            <a class="nav-link" href="index.php?action=biography">Biographie</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php?action=listAllPosts">Chapitres</a>

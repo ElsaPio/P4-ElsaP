@@ -91,6 +91,29 @@ function signalementComment($id)
     }
 }
 
+function unsignalementComment($id)
+{
+
+    $commentManager = new CommentManager();
+
+    $affectedLines = $commentManager->unsignalComment($id);
+
+    if ($affectedLines === false) {
+        // Erreur gérée. Elle sera remontée jusqu'au bloc try du routeur !
+        throw new Exception('Impossible de désignaler le commentaire !');
+    }    
+    else {
+        // Redirection vers l'article 
+        header('Location: /index.php?action=listPostsAdmin');
+        exit;
+    }
+}
+
+function viewBiography()
+{
+    require('vues/biographie.php');
+}
+
 function viewAddArticle()
 {
     require('vues/newarticleview.php');

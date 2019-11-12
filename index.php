@@ -54,7 +54,19 @@ try { // On essaie de faire des choses
                 throw new Exception('Vous devez être connecté(e) pour signaler un commentaire');
                     
             }
-
+        }
+        elseif ($_GET['action'] == 'unsignalComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $id = (!empty($_GET['id']))? intval($_GET['id']) : 0;
+                    unsignalementComment($id);
+            }
+            else {
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+                    
+            }
+        }
+        elseif ($_GET['action'] == 'biography') {
+            viewBiography();
         }
         elseif ($_GET['action'] == 'newArticle') {
             viewAddArticle();

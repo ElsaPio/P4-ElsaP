@@ -17,6 +17,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="./design/js/jsadmin.js"></script>
+    <!-- Tiny MCE -->
     <script src="https://cdn.tiny.cloud/1/v3wdjvkng5w5vqlcq3lhwk8uw6sey7z3xvz6k00at0nhfpuz/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="/design/tinymce/fr_FR.js"></script>
     <script src="/design/tinymce/tinyconfig.js"></script>

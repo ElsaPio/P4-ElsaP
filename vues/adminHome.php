@@ -76,13 +76,13 @@
                 <?php echo $article['date']; ?>
               </td>
               <td>
-                <p data-placement="top" data-toggle="tooltip" title="Modifier">
-                  <a href="index.php?action=editArticleView&id=<?php echo $article['id']; ?>"><button class="btn btn-primary btn-xs" data-title="Modifier" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></a>
+                <p title="Modifier">
+                  <a href="index.php?action=editArticleView&id=<?php echo $article['id']; ?>"><button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a>
                 </p>
               </td>
               <td>
-                <p data-placement="top" data-toggle="tooltip" title="Supprimer">
-                  <a href="index.php?action=suppArticle&id=<?php echo $article['id']; ?>"><button class="btn btn-danger btn-xs" data-title="Supprimer" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></a>
+                <p title="Supprimer">
+                  <a href="index.php?action=suppArticle&id=<?php echo $article['id']; ?>"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></a>
                 </p>
               </td>
             </tr>
@@ -116,7 +116,7 @@
             Signalement
           </th>
           <th class="iconcenter">
-            Modifier
+            Désignaler
           </th>
           <th class="iconcenter">
             Supprimer
@@ -144,13 +144,15 @@
                <?= htmlspecialchars($comment['signalement'] ? 'Oui' : 'Non'); ?>
             </td>
             <td>
-              <p data-placement="top" data-toggle="tooltip" title="Modifier">
-                <button class="btn btn-primary btn-xs" data-title="Modifier" data-toggle="modal" data-target="#editcomm" ><span class="glyphicon glyphicon-pencil"></span></button>
+              <?php if ($comment['signalement'] == 1): ?>
+              <p title="Modifier">
+                <a href="index.php?action=unsignalComment&id=<?php echo $comment['id']; ?>"><button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-wrench"></span></button></a>
               </p>
+              <?php endif;?>
             </td>
             <td>
-              <p data-placement="top" data-toggle="tooltip" title="Supprimer">
-                <a href="index.php?action=suppComment&id=<?php echo $comment['id']; ?>"><button class="btn btn-danger btn-xs" data-title="Supprimer" data-toggle="modal" data-target="#deletecomm" ><span class="glyphicon glyphicon-trash"></span></button></a>
+              <p title="Supprimer">
+                <a href="index.php?action=suppComment&id=<?php echo $comment['id']; ?>"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></a>
               </p>
             </td>
           </tr>
@@ -163,88 +165,6 @@
     </div>
   </div>
 </div>
-</div>
-<!-- <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title custom_align" id="Heading">Modifier l'article</h4>
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-    </div>
-    <div class="modal-body">
-      <div class="form-group">
-        <input class="form-control" type="text" placeholder="Titre">
-      </div>
-      <div class="form-group">
-        <textarea rows="2" class="form-control" id="tinyarea" placeholder="Contenu"></textarea>
-      </div>
-    </div>
-    <div class="modal-footer ">
-      <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span>Mettre à jour</button>
-    </div>
-  </div> -->
-  <!-- /.modal-content -->
-</div>
-<!-- /.modal-dialog -->
-</div>
-<!--
-<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true"><div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title custom_align" id="Heading">Supprimer l'article</h4>
-    </div>
-    <div class="modal-body">
-      <div class="alert alert-danger">
-        <span class="glyphicon glyphicon-warning-sign"></span>
-          Confirmez-vous la suppression ?
-      </div>
-    </div>
-    <div class="modal-footer ">
-      <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Oui</button>
-      <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Non</button>
-    </div>
-  </div>
-</div>
-</div>
--->
-<div class="modal fade" id="editcomm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true"><div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title custom_align" id="Heading">Modifier le commentaire</h4>
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-    </div>
-    <div class="modal-body">
-      <div class="form-group">
-        <textarea rows="2" class="form-control" placeholder="Modifier le commentaire"></textarea>
-      </div>
-    </div>
-    <div class="modal-footer ">
-      <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span>Mettre à jour</button>
-    </div>
-  </div>
-  <!-- /.modal-content -->
-</div>
-<!-- /.modal-dialog -->
-</div>
-<!--
-<div class="modal fade" id="deletecomm" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true"><div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title custom_align" id="Heading">Supprimer le commentaire</h4>
-    </div>
-    <div class="modal-body">
-      <div class="alert alert-danger">
-        <span class="glyphicon glyphicon-warning-sign"></span>
-          Confirmez-vous la suppression ?
-      </div>
-    </div>
-    <div class="modal-footer ">
-      <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Oui</button>
-      <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Non</button>
-    </div>
-  </div>
-</div>
-</div>
--->
-<hr>
 
 <?php else: ?>
   <header class="masthead" style="background-image: url('/img/post-bg.jpg')">
