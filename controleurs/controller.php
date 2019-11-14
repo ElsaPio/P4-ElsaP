@@ -172,7 +172,6 @@ function suppArticle($id)
 function viewAddUser()
 {
     require('vues/inscriptionview.php');
-    var_dump($_SESSION);
 }
 
 function addUser($username, $password)

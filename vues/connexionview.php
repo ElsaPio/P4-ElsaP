@@ -1,6 +1,6 @@
-<?php require_once('portions/head.php'); ?>
-<?php require_once('portions/navigation.php'); ?>
-
+<?php
+ob_start();
+?>
 
 <header class="masthead" style="background-image: url('/img/post-bg.jpg')">
     <div class="overlay"></div>
@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="post-heading">
-                    <h1>Inscription / Connexion</h1>
+                    <h1>Connexion</h1>
                 </div>
             </div>
         </div>
@@ -44,4 +44,6 @@
     </div>
 </div>
 
-<?php require_once('portions/footer.php'); ?>
+<?php
+$content = ob_get_clean();
+require('template.php'); ?>

@@ -1,24 +1,21 @@
 <?php
-require_once('portions/head.php');
-?>
-<?php
-require_once('portions/navigation.php');
+ob_start();
 ?>
 
-  <!-- Page Header -->
-  <header class="masthead" style="background-image: url('/img/home-bg.jpg')">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
-            <h1>Billet simple pour l'Alaska</h1>
-            <span class="subheading">Un récit de Jean Forteroche</span>
-          </div>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('/img/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Billet simple pour l'Alaska</h1>
+          <span class="subheading">Un récit de Jean Forteroche</span>
         </div>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
   <!-- Main Content -->
 
@@ -70,9 +67,6 @@ require_once('portions/navigation.php');
   </div>
 
 
-
-  <hr>
-
-  <?php
-  require_once('portions/footer.php');
-  ?>
+<?php
+$content = ob_get_clean();
+require('template.php'); ?>

@@ -1,8 +1,5 @@
 <?php
-require_once('portions/head.php');
-?>
-<?php
-require_once('portions/navigation.php');
+ob_start();
 ?>
 
   <!-- Page Header -->
@@ -21,8 +18,6 @@ require_once('portions/navigation.php');
   </header>
 
   <!-- Main Content -->
-
-
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
@@ -65,6 +60,7 @@ require_once('portions/navigation.php');
          }
          $posts->closeCursor();
          ?>
+
        <!-- Pager -->
         <div class="clearfix">
           <a class="btn btn-primary float-right" href="index.php?action=listAllPosts">Voir tous les billets &rarr;</a>
@@ -73,10 +69,6 @@ require_once('portions/navigation.php');
     </div>
   </div>
 
-
-
-  <hr>
-
-  <?php
-  require_once('portions/footer.php');
-  ?>
+<?php
+$content = ob_get_clean();
+require('template.php'); ?>

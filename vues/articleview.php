@@ -1,6 +1,8 @@
-<?php require_once('portions/head.php'); ?>
-<?php require_once('portions/navigation.php'); ?>
-<!-- Article -->
+<?php
+ob_start();
+?>
+
+<!-- Header -->
 <header class="masthead" style="background-image: url('/img/post-bg.jpg')">
     <div class="overlay"></div>
     <div class="container">
@@ -14,6 +16,8 @@
         </div>
     </div>
 </header>
+
+<!-- Article -->
 <article>
     <div class="container">
         <div class="row">
@@ -46,6 +50,7 @@
         </div>
     </div>
 </article>
+
 <article>
     <div class="container">
         <div class="row">
@@ -78,6 +83,7 @@
         </div>
     </div>
 </article>
-<?php require_once('portions/footer.php'); ?>
 
-
+<?php
+$content = ob_get_clean();
+require('template.php'); ?>
